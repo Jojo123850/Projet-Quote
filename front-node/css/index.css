@@ -1,0 +1,58 @@
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #f4f4f4; /* Même fond que la connexion */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+}
+
+/* Le conteneur de la citation */
+#section {
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #888;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* Style pour le texte de la citation (une fois généré par JS) */
+#quote {
+    font-size: 1.5rem;
+    font-style: italic;
+    font-family: 'Georgia', serif; /* Un style plus "littéraire" */
+    line-height: 1.4;
+    color: #222;
+    margin-bottom: 15px;
+}
+
+/* Style pour l'auteur */
+#Author {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #555;
+}
+
+#Author::before {
+    content: "— "; /* Ajoute un tiret automatique devant l'auteur */
+}

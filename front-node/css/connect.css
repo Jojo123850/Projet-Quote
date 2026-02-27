@@ -1,0 +1,95 @@
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #f4f4f4; /* Fond gris très clair */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Conteneur principal */
+section {
+    width: 100%;
+    max-width: 350px;
+    padding: 20px;
+}
+
+/* Le formulaire */
+.formulaire {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    font-size: 1.2rem;
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+/* Labels et Inputs */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    outline: none;
+}
+
+input:focus {
+    border-color: #444; /* Bordure plus sombre au clic */
+}
+
+/* Texte sous le formulaire */
+p {
+    font-size: 0.85rem;
+    text-align: center;
+    margin-bottom: 15px;
+    color: #777;
+}
+
+p a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+/* Bouton Se connecter */
+button {
+    background-color: #444; /* Gris anthracite */
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background-color: #222; /* Devient noir au survol */
+}
