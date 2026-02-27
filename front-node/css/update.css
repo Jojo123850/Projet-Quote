@@ -1,0 +1,101 @@
+/* Utilise les mêmes variables que ton index */
+:root {
+    --bg-cream: #fdfcf5;
+    --card-white: #ffffff;
+    --star-butter: #ffe082;
+    --star-gold: #ffca28;
+    --text-cocoa: #3e2723;
+    --text-soft-cocoa: #6d4c41;
+    --border-soft: #f1f0e8;
+    --cancel-pink: #ffab91; /* Rose doux pour annuler */
+}
+
+body {
+    background-color: var(--bg-cream);
+    color: var(--text-cocoa);
+    font-family: 'Fredoka', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px;
+}
+
+/* Container du formulaire de modification */
+#quoteForm {
+    background: var(--card-white);
+    padding: 40px;
+    border-radius: 40px;
+    box-shadow: 0 15px 50px rgba(62, 39, 35, 0.05);
+    border: 3px solid var(--star-butter);
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    margin-bottom: 30px;
+    color: var(--text-cocoa);
+    text-align: center;
+}
+
+label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-soft-cocoa);
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+/* Saisie de texte (Visibilité maximale en brun chocolat) */
+input[type="text"], 
+textarea {
+    width: 100%;
+    background-color: #fffef9 !important;
+    border: 2px solid var(--border-soft);
+    border-radius: 20px;
+    padding: 16px;
+    margin-bottom: 20px;
+    color: var(--text-cocoa) !important; /* Texte bien sombre et lisible */
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+input:focus, 
+textarea:focus {
+    border-color: var(--star-gold);
+    background-color: #ffffff !important;
+    box-shadow: 0 0 0 5px rgba(255, 202, 40, 0.1);
+}
+
+/* Bouton Enregistrer (Jaune Or) */
+button[type="submit"] {
+    background-color: var(--star-gold);
+    color: #ffffff;
+    border: none;
+    padding: 16px;
+    border-radius: 20px;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #ffb300;
+    transform: translateY(-2px);
+}
+
+/* Bouton Annuler (Rose/Pêche doux) */
+#cancelBtn {
+    background-color: transparent;
+    color: var(--text-soft-cocoa);
+    border: 2px solid var(--border-soft);
+    padding: 12px;
+    border-radius: 20px;
+    font-family: 'Fredoka', sans-serif;
+}

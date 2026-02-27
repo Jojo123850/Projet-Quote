@@ -1,53 +1,72 @@
 const section = document.querySelector('#section');
 
-async function getRandomQuote() {
+async function getAiQuote() {
   try {
-    const response = await fetch("http://localhost:3000/api/quote/aiquote");
+    const response = await fetch("http://localhost:3000/api/quote/aiquote"); 
     const data = await response.json();
 
     const quoteContainer = document.createElement("div");
     quoteContainer.classList.add("quote");
-    quoteContainer.dataset.id = data.id; 
 
     quoteContainer.innerHTML = `
-      <p class="quote-text">${data.quote}</p>
-      <p class="quote-author">${data.author}</p>
       <div>
-        <button class="delete-btn">Supprimer</button>
-        <button class="update-btn">Modifier</button>
-      </div>
-      <form class="edit-form" style="display:none">
-        <input type="text" name="quote" value="${data.quote}" />
-        <input type="text" name="author" value="${data.author}" />
-        <button type="submit">Enregistrer</button>
-        <button type="button" class="cancel-btn">Annuler</button>
-      </form>
-       <button class="update-btn">Modifier</button>
+          <h1>Citation du jour</h1>
+          <p class="quote-text">${data.quote}</p>
+          <p class="quote-author">${data.author}</p> 
+      </div> 
     `;
 
-    section.appendChild(quoteContainer);
-
-
-    quoteContainer.querySelector(".update-btn").addEventListener("click", () => {
-      quoteContainer.querySelector(".edit-form").style.display = "block";
-    });
-
-
-    quoteContainer.querySelector(".cancel-btn").addEventListener("click", () => {
-      quoteContainer.querySelector(".edit-form").style.display = "none";
-    });
-
-    quoteContainer.querySelector(".edit-form").addEventListener("submit", (e) => {
-      e.preventDefault();
-      const newQuote = e.target.quote.value;
-      const newAuthor = e.target.author.value;
-      const id = quoteContainer.dataset.id;
-      updateQuote(id, quoteContainer, newQuote, newAuthor); 
-    });
+    section.prepend(quoteContainer);
 
   } catch (error) {
-    console.error("Erreur :", error);
+    console.error("Erreur IA :", error);
   }
 }
 
-getRandomQuote();
+async function getAllQuotes() {
+  try {
+    const response = await fetch("http://localhost:3000/api/quote/all");
+    const data = await response.json();
+
+    if (!data || data.length === 0) {
+      section.innerHTML += `<p>Aucune citation disponible pour le moment.</p>`;
+      return;
+    }
+
+    data.forEach((q) => {
+      const quoteContainer = document.createElement("div");
+      quoteContainer.classList.add("quote");
+
+      quoteContainer.innerHTML = `
+        <div>
+          <p class="quote-text">${q.quote}</p>
+          <p class="quote-author">${q.author}</p>
+          <button class="edit-btn">Modifier</button>
+          <button class="delete-btn">Supprimer</button>
+        </div>
+      `;
+
+      // Modifier
+      quoteContainer.querySelector(".edit-btn").addEventListener("click", () => {
+        window.location.href = `update.html?id=${q._id}`;
+      });
+
+ 
+      quoteContainer.querySelector(".delete-btn").addEventListener("click", () => {
+        if (confirm("Voulez-vous vraiment supprimer cette citation ?")) {
+          window.location.href = `index.html?id=${q._id}`;
+        }
+      });
+
+      section.appendChild(quoteContainer);
+    });
+
+  } catch (error) {
+    console.error("Erreur serveur :", error);
+    section.innerHTML += `<p>Impossible de récupérer les citations.</p>`;
+  }
+}
+
+
+getAiQuote();
+getAllQuotes();

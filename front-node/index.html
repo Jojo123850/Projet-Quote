@@ -4,16 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil</title>
-    <link rel="stylesheet" href="./css/create.css"> 
+    <link rel="stylesheet" href="./css/index.css"> 
 </head>
 <body>
+    <header>
+        <a href="create.html">Inscription</a>
+        <a href="connect.html">Connexion</a>
+
+    </header>
+    <h1>Citation</h1>
     
     <section id="section">
-       <h1>Citation du jour</h1>
      
 
     </section>
 
+    <section id="ajout">
+   
+            <form id="ajout-de-citation" method="post">
+                        
+                    <label for="quote">Citation :</label>
+                    <textarea id="quote" name="quote" required></textarea>
+
+                    <label for="author">Auteur :</label>
+                    <input type="text" id="author" name="author" required />
+
+                    <button type="submit">Ajouter la citation</button>
+            </form>
+
+    </section>
 <script src="./js/index.js"></script>
+
 </body>
 </html>

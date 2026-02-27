@@ -1,95 +1,87 @@
-/* Reset & Base */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+:root {
+    --bg-page: #000000;
+    --gold: #FFC947;
+    --input-bg: #111111;
+    --text-white: #FFFFFF;
 }
 
 body {
-    font-family: sans-serif;
-    background-color: #f4f4f4; /* Fond gris très clair */
+    background-color: var(--bg-page);
+    color: var(--text-white);
+    font-family: 'Inter', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    margin: 0;
 }
 
-/* Conteneur principal */
-section {
+/* On crée un bloc bien visible pour ne pas être perdu dans le noir */
+#section, .formulaire {
+    background: #0a0a0a;
+    border: 1px solid #222;
+    padding: 40px;
+    border-radius: 12px;
     width: 100%;
-    max-width: 350px;
-    padding: 20px;
+    max-width: 400px;
+    box-shadow: 0 10px 50px rgba(0,0,0,0.8);
 }
 
-/* Le formulaire */
-.formulaire {
-    background: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
-}
-
-h2 {
-    font-size: 1.2rem;
+h2, h1 {
+    color: var(--gold);
+    margin-bottom: 30px;
     text-align: center;
-    color: #333;
-    margin-bottom: 25px;
 }
 
-/* Labels et Inputs */
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 0.9rem;
-    color: #555;
-}
-
+/* CHAMPS DE SAISIE : Fond sombre mais texte BLANC PUR */
 input {
     width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1rem;
-    outline: none;
+    background-color: var(--input-bg) !important;
+    border: 1px solid #333 !important;
+    border-radius: 8px;
+    padding: 14px;
+    margin-bottom: 20px;
+    color: #ffffff !important; /* Force le texte en blanc */
+    font-size: 16px; /* Évite le zoom auto sur mobile */
+    display: block;
 }
 
 input:focus {
-    border-color: #444; /* Bordure plus sombre au clic */
+    outline: none;
+    border-color: var(--gold) !important;
+    box-shadow: 0 0 5px rgba(255, 201, 71, 0.3);
 }
 
-/* Texte sous le formulaire */
-p {
-    font-size: 0.85rem;
-    text-align: center;
-    margin-bottom: 15px;
-    color: #777;
-}
-
-p a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-p a:hover {
-    text-decoration: underline;
-}
-
-/* Bouton Se connecter */
+/* BOUTON : Bien contrasté */
 button {
-    background-color: #444; /* Gris anthracite */
-    color: white;
-    padding: 12px;
+    width: 100%;
+    background-color: var(--gold);
+    color: #000;
     border: none;
-    border-radius: 4px;
+    padding: 14px;
+    border-radius: 8px;
+    font-weight: 700;
     cursor: pointer;
-    font-size: 1rem;
-    font-weight: 500;
-    transition: background 0.3s ease;
+    text-transform: uppercase;
+    transition: transform 0.1s;
 }
 
-button:hover {
-    background-color: #222; /* Devient noir au survol */
+button:active {
+    transform: scale(0.98);
+}
+
+/* Pour les liens sous le formulaire */
+a {
+    color: #666;
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+a:hover {
+    color: var(--gold);
 }
