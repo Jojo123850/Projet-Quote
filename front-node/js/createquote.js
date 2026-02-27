@@ -1,5 +1,5 @@
 const section = document.getElementById("section");
-const form = document.getElementById("ajout-de-citation");
+const btnSubmit = document.querySelector("#submit");
 const quoteInput = document.getElementById("quote");
 const authorInput = document.getElementById("author");
 
@@ -9,7 +9,7 @@ let editingIndex = null;
 function afficherCitations() {
     section.innerHTML = "";
     citations.forEach((c, index) => {
-        
+
         const div = document.createElement("div");
 
         div.classList.add("citation");
